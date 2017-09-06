@@ -10,6 +10,7 @@ const init = (username) => {
     getUserId(username)
         .then(userId => getRecentMediaStream(userId, 8))
         .then(media$ => writeMediaToCsv(media$))
+        .catch(err => console.error(`Something went wrong: ${err}`));
 };
 
 init(username);
